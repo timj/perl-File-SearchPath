@@ -21,7 +21,6 @@ SEE ALSO
 
 File::Which, File::Where.
 
-
 AUTHOR
 
 Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>
@@ -42,6 +41,12 @@ You should have received a copy of the GNU General Public License along with
 this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place,Suite 330, Boston, MA  02111-1307, USA
 
-CHANGES IN THIS RELEASE
+CHANGES
+
+v0.02   + Add compatibility with Robert Spier's File::SearchPath
+          module (that was no longer on CPAN)
+        + If an absolute filename is given, test it and return
+          it if it passes those tests (else return undef)
+        + Document returning of undef if no files are found.
 
 V0.001  First version.
