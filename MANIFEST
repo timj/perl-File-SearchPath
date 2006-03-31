@@ -1,3 +1,4 @@
+README
 Makefile.PL
 SearchPath.pm
 t/
@@ -8,3 +9,4 @@ t/b/file2
 t/b/file3
 t/c/file4
 
+META.yml                                 Module meta-data (added by MakeMaker)
