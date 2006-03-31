@@ -1,6 +1,6 @@
 Makefile.PL
 SearchPath.pm
-t
+t/
 t/search.t
 t/a/file1
 t/a/file2
