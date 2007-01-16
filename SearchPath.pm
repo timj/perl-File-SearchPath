@@ -224,12 +224,17 @@ sub _env_to_dirs {
     croak "Environment variable does exist but it is not defined. Unable to search it\n"
       unless defined $ENV{$var};
   }
-  eval { require Env::Path };
-  if ($@ || defined $contents) {
+  my $use_env_path;
+  {
+    # Localise $@ so that we can use this command from perldl shell
+    local $@;
+    eval { require Env::Path };
+    $use_env_path = ( $@ ? 0 : 1 );
+  }
+  if (!$use_env_path || defined $contents) {
     # no Env::Path so we just split on :
     my $path = (defined $contents? $contents : $ENV{$var});
     return split(/:/, $path);
-
   } else {
     my $path = Env::Path->$var;
     return $path->List;
