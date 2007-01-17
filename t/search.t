@@ -1,6 +1,6 @@
 # -*-perl-*-
 
-use Test::More tests => 11;
+use Test::More tests => 14;
 use File::Spec;
 
 require_ok( "File::SearchPath" );
@@ -50,6 +50,20 @@ is($full[1], File::Spec->catfile("t","b","file2"),"found file2");
 is(@full, 2, "Number of files found in backcompat mode" );
 is($full[0], File::Spec->catfile("t","a","file2"),"found file2");
 is($full[1], File::Spec->catfile("t","b","file2"),"found file2");
+
+# Search for a directory
+setpath( "MYPATH", File::Spec->tmpdir, File::Spec->curdir );
+$fullpath = File::SearchPath::searchpath( "t", dir => 1, env => "MYPATH");
+is( $fullpath, File::Spec->catdir(File::Spec->curdir, "t"), "Found directory");
+
+$fullpath = File::SearchPath::searchpath( "t", env => "MYPATH" );
+ok(!$fullpath, "Do not find dir when not looking for dir");
+
+# absolute dir
+my $tmpdir = File::Spec->tmpdir;
+$tmpdir = File::Spec->rel2abs( $tmpdir ) if !File::Spec->file_name_is_absolute;
+$fullpath = File::SearchPath::searchpath( $tmpdir, dir => 1);
+ok($fullpath, "Find absolute path");
 
 exit;
 
