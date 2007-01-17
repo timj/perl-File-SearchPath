@@ -11,7 +11,7 @@ File::SearchPath - Search for a file in an environment variable path
   $file = searchpath( 'libperl.a', env => 'LD_LIBRARY_PATH' );
   $file = searchpath( 'my.cfg', env => 'CFG_DIR', subdir => 'ME' );
 
-  $file = searcpath( 'ls', $ENV{PATH} );
+  $file = searchpath( 'ls', $ENV{PATH} );
 
   $exe = searchpath( 'ls' );
 
