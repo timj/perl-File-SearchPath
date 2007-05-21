@@ -36,7 +36,7 @@ use vars qw/ $VERSION @EXPORT_OK /;
 
 use File::Spec;
 
-$VERSION = sprintf("%d.%02d", q$Revision$ =~ /(\d+)\.(\d+)/);
+$VERSION = sprintf("%d", q$Revision$ =~ /(\d+)/);
 
 @EXPORT_OK = qw( searchpath );
 
