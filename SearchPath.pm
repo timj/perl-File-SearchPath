@@ -35,8 +35,9 @@ use base qw/ Exporter /;
 use vars qw/ $VERSION @EXPORT_OK /;
 
 use File::Spec;
+use Config;
 
-$VERSION = sprintf("%d", q$Revision$ =~ /(\d+)/);
+$VERSION = '0.03';
 
 @EXPORT_OK = qw( searchpath );
 
@@ -55,8 +56,8 @@ can include directory specifications.
   $path = searchpath( $file );
   @matches = searchpath( $file );
 
-If a second argument is provided, it is assumed to be (specifically)
-a colon-separated path like variable. This interface is provided for
+If a second argument is provided, it is assumed to be
+a path like variable. This interface is provided for
 backwards compatibility with C<File::SearchPath> version 0.01. It is not
 as portable as specifying the name of the environment variable. Note also
 that no specific attempt will be made to check whether the file is
@@ -215,7 +216,7 @@ the list of directories to be searched.
 
 If Env::Path is installed, it is used since it understands a more
 varied set of path delimiters, otherwise the variable is split on
-colons.
+the value of $Config{path_sep}.
 
   @dirs = _env_to_dirs( 'PATH' );
 
@@ -255,7 +256,8 @@ sub _env_to_dirs {
   if (!$use_env_path || defined $contents) {
     # no Env::Path so we just split on :
     my $path = (defined $contents? $contents : $ENV{$var});
-    return split(/:/, $path);
+    my $ps = $Config{path_sep};
+    return split(/$ps/, $path);
   } else {
     my $path = Env::Path->$var;
     return $path->List;

@@ -2,6 +2,7 @@
 
 use Test::More tests => 14;
 use File::Spec;
+use Config;
 
 require_ok( "File::SearchPath" );
 
@@ -22,13 +23,13 @@ ok( !$fullpath, "$test not executable");
 # Now look for perl itself
 my ($vol,$dir,$f) = File::Spec->splitpath( $^X );
 if ($dir) {
-  setpath( "MYPATH", $dir, "t" );
+  setpath( "MYPATH", File::Spec->catpath($vol,$dir,""), "t" );
   $fullpath = File::SearchPath::searchpath( $f, exe => 1, env => "MYPATH" );
   is( $fullpath, $^X, "Looking for perl in $ENV{MYPATH}");
 } else {
   # test invoked with perl that did not include a path
-  # test instead that perl is in out PATH (which it must be else
-  # this script would not run
+  # test instead that perl is in our PATH (which it must be else
+  # this script would not run)
   $fullpath = File::SearchPath::searchpath( $^X );
   ok($fullpath, "Found perl in PATH");
 }
@@ -61,7 +62,7 @@ ok(!$fullpath, "Do not find dir when not looking for dir");
 
 # absolute dir
 my $tmpdir = File::Spec->tmpdir;
-$tmpdir = File::Spec->rel2abs( $tmpdir ) if !File::Spec->file_name_is_absolute;
+$tmpdir = File::Spec->rel2abs( $tmpdir ) if !File::Spec->file_name_is_absolute($tmpdir);
 $fullpath = File::SearchPath::searchpath( $tmpdir, dir => 1);
 ok($fullpath, "Find absolute path");
 
@@ -75,7 +76,8 @@ sub setpath {
   eval { require Env::Path };
   if ($@) {
     # use colons
-    $ENV{$env} = join(":", @dirs);
+    my $ps = $Config{path_sep};
+    $ENV{$env} = join($ps, @dirs);
   } else {
     my $path = Env::Path->$env;
     $path->Assign( @dirs );
