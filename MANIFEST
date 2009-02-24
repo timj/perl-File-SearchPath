@@ -1,4 +1,5 @@
 README
+MANIFEST
 Makefile.PL
 SearchPath.pm
 t/search.t
