@@ -100,7 +100,7 @@ call. (triggering a croak() on error).
 
 If you know that your file is in a subdirectory of the path described
 by the environment variable, this direcotry can be specified here.
-Alterntaively, the path can be included in the file name itself.
+Alternatively, the path can be included in the file name itself.
 
 =back
 
@@ -327,7 +327,8 @@ L<File::Where>.
 
 Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>
 
-Copyright 2005,2006 Particle Physics and Astronomy Research Council.
+Copyright (C) 2005,2006, 2008 Particle Physics and Astronomy Research Council.
+Copyright (C) 2009 Science and Technology Facilities Council.
 All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it under
