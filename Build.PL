@@ -44,6 +44,9 @@ my $build = Module::Build->new
    requires => {
                 'File::Spec' => 0.8,
                },
+   recommends => {
+                  'Env::Path' => 0,
+                  },
    build_requires => {
                       'Test::More' => 0,
                      },
