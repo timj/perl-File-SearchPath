@@ -257,7 +257,7 @@ sub _env_to_dirs {
     # no Env::Path so we just split on :
     my $path = (defined $contents? $contents : $ENV{$var});
     my $ps = $Config{path_sep};
-    return split(/$ps/, $path);
+    return split(/\Q$ps\E/, $path);
   } else {
     my $path = Env::Path->$var;
     return $path->List;
