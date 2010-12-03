@@ -1,0 +1,26 @@
+---
+abstract: 'Search for a file in an environment variable path'
+author:
+  - 'Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
+license: gpl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: File-SearchPath
+provides:
+  File::SearchPath:
+    file: lib/File/SearchPath.pm
+    version: 0.06
+recommends:
+  Env::Path: 0
+requires:
+  File::Spec: 0.8
+resources:
+  license: http://opensource.org/licenses/gpl-license.php
+  repository: git://github.com/timj/perl-File-SearchPath.git
+version: 0.06
