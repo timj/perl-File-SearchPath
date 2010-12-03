@@ -37,7 +37,7 @@ use vars qw/ $VERSION @EXPORT_OK /;
 use File::Spec;
 use Config;
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 @EXPORT_OK = qw( searchpath );
 
@@ -328,7 +328,7 @@ L<File::Where>.
 Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>
 
 Copyright (C) 2005,2006, 2008 Particle Physics and Astronomy Research Council.
-Copyright (C) 2009 Science and Technology Facilities Council.
+Copyright (C) 2009-2010 Science and Technology Facilities Council.
 All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it under

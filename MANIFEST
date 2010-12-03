@@ -1,7 +1,7 @@
 README
 MANIFEST
-Makefile.PL
-SearchPath.pm
+Build.PL
+lib/File/SearchPath.pm
 t/search.t
 t/a/file1
 t/a/file2
