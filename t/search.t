@@ -1,6 +1,6 @@
 # -*-perl-*-
 
-use Test::More tests => 14;
+use Test::More tests => 16;
 use File::Spec;
 use Config;
 
@@ -49,8 +49,13 @@ is($full[1], File::Spec->catfile("t","b","file2"),"found file2");
 # Now for backwards compatibility
 @full = File::SearchPath::searchpath( "file2", $ENV{MYPATH} );
 is(@full, 2, "Number of files found in backcompat mode" );
-is($full[0], File::Spec->catfile("t","a","file2"),"found file2");
-is($full[1], File::Spec->catfile("t","b","file2"),"found file2");
+is($full[0], File::Spec->catfile("t","a","file2"),"found file2 [backcompat]");
+is($full[1], File::Spec->catfile("t","b","file2"),"found file2 [backcompat]");
+
+# Backwards compatibility equivalency
+@compat = File::SearchPath::searchpath( "file2", env => "MYPATH", exe => 0 );
+is($full[0], $compat[0], "backcompat matches normal file2");
+is($full[1], $compat[1], "backcompat matches normal file2");
 
 # Search for a directory (curdir first since we expect this to match
 # current directory and CPAN testers sets $TMPDIR to the current directory)
