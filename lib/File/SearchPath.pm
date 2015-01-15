@@ -57,7 +57,7 @@ can include directory specifications.
   @matches = searchpath( $file );
 
 If only two arguments are provided, it is assumed that the second
-argument is a path like variable. This interface is provided for
+argument is a path-like string. This interface is provided for
 backwards compatibility with C<File::SearchPath> version 0.01. It is not
 as portable as specifying the name of the environment variable. Note also
 that no specific attempt will be made to check whether the file is
