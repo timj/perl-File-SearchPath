@@ -56,8 +56,8 @@ can include directory specifications.
   $path = searchpath( $file );
   @matches = searchpath( $file );
 
-If a second argument is provided, it is assumed to be
-a path like variable. This interface is provided for
+If only two arguments are provided, it is assumed that the second
+argument is a path-like string. This interface is provided for
 backwards compatibility with C<File::SearchPath> version 0.01. It is not
 as portable as specifying the name of the environment variable. Note also
 that no specific attempt will be made to check whether the file is
@@ -68,7 +68,7 @@ executable when the subroutine is called in this way.
 By default, this will search in $PATH for executable files and is
 equivalent to:
 
-  $path = searchpath( $file, env => 'PATH', exe => 1 );
+  $path = searchpath( $file, env => 'PATH', exe => 0 );
 
 Hash-like options can be used to alter the behaviour of the
 search:
