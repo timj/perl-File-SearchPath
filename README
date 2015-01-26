@@ -23,10 +23,11 @@ File::Which, File::Where.
 
 AUTHOR
 
-Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>
+Tim Jenness E<lt>tjenness@cpan.orgE<gt>
 
 Copyright 2005,2006,2008 Particle Physics and Astronomy Research Council.
 Copyright (C) 2009-2010 Science and Technology Facilities Council.
+Copyright (C) 2015 Tim Jenness
 All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it under
@@ -43,6 +44,9 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place,Suite 330, Boston, MA  02111-1307, USA
 
 CHANGES
+
+v0.06  RT #85529 fixed by Jonathon Scott Duff
+       Minor documentation clean up by Jonathan Scott Duff
 
 v0.06  Fix path separator problem on VMS (thanks to Peter Edwards)
        Use Module::Build
