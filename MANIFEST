@@ -11,3 +11,4 @@ t/b/file3
 t/c/file4
 ChangeLog
 META.yml
+META.json
