@@ -57,9 +57,8 @@ is($full[1], File::Spec->catfile("t","b","file2"),"found file2 [backcompat]");
 is($full[0], $compat[0], "backcompat matches normal file2");
 is($full[1], $compat[1], "backcompat matches normal file2");
 
-# Search for a directory (curdir first since we expect this to match
-# current directory and CPAN testers sets $TMPDIR to the current directory)
-setpath( "MYPATH", File::Spec->curdir, File::Spec->tmpdir );
+# Search for a directory
+setpath( "MYPATH", File::Spec->catdir(File::Spec->curdir, "blib"), File::Spec->curdir );
 $fullpath = File::SearchPath::searchpath( "t", dir => 1, env => "MYPATH");
 is( $fullpath, File::Spec->catdir(File::Spec->curdir, "t"), "Found directory");
 
