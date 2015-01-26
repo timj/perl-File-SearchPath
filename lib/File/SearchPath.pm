@@ -325,7 +325,7 @@ L<File::Where>.
 
 =head1 AUTHOR
 
-Tim Jenness E<lt>t.jenness@jach.hawaii.eduE<gt>
+Tim Jenness E<lt>tjenness@cpan.orgE<gt>
 
 Copyright (C) 2005,2006, 2008 Particle Physics and Astronomy Research Council.
 Copyright (C) 2009-2010 Science and Technology Facilities Council.

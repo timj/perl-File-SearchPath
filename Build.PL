@@ -33,7 +33,7 @@ my $build = Module::Build->new
    abstract_from => $file,
    license  => 'gpl',
    author => [
-              'Tim Jenness <t.jenness@jach.hawaii.edu>',
+              'Tim Jenness <tjenness@cpan.org>',
              ],
    dist_version_from => $file,
    meta_merge => {
