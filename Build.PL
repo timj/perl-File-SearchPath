@@ -40,7 +40,10 @@ my $build = Module::Build->new
                resources =>  {
                               repository => "git://github.com/timj/perl-File-SearchPath.git",
                              },
-                },
+                 },
+   configure_requires => {
+                          "Module::Build" => 0.36,
+                         },
    requires => {
                 'File::Spec' => 0.8,
                },
