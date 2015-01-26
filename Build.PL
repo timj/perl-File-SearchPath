@@ -31,7 +31,7 @@ my $build = Module::Build->new
   (
    module_name => 'File::SearchPath',
    abstract_from => $file,
-   license  => 'gpl',
+   license  => 'gpl2',
    author => [
               'Tim Jenness <tjenness@cpan.org>',
              ],
